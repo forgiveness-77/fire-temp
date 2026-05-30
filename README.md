@@ -101,7 +101,15 @@ cd fems/frontend
 npm run dev
 ```
 
-Open **http://localhost:5173** in your browser and sign in with one of the demo accounts below.
+Open **http://localhost:5173** in your browser and sign in with one of the demo accounts below, or [register a new account](#registration).
+
+---
+
+## Registration
+
+New users can self-register at **http://localhost:5173/register**. Accounts are created with the **viewer** role (read-only). An admin can promote users to manager or admin from the Users page.
+
+Required fields: full name, username, password (min. 6 characters). Email is optional.
 
 ---
 
@@ -171,6 +179,7 @@ Base URL: `http://localhost:5000/api`
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
 | POST | `/auth/login` | Public | Sign in, returns JWT |
+| POST | `/auth/register` | Public | Create account (viewer role), returns JWT |
 | GET | `/auth/me` | JWT | Current user profile |
 | GET/POST/PUT/DELETE | `/customers` | JWT | Customer CRUD |
 | GET/POST/PUT/DELETE | `/extinguishers` | JWT | Extinguisher CRUD |

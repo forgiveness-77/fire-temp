@@ -31,7 +31,7 @@ export function setUnauthorizedHandler(handler) {
 api.interceptors.response.use(
   (res) => res,
   (err) => {
-    if (err.response?.status === 401 && !err.config?.url?.includes('/auth/login')) {
+    if (err.response?.status === 401 && !err.config?.url?.includes('/auth/login') && !err.config?.url?.includes('/auth/register')) {
       clearAuthToken();
       onUnauthorized?.();
     }
@@ -41,6 +41,7 @@ api.interceptors.response.use(
 
 export const authApi = {
   login: (data) => api.post('/auth/login', data),
+  register: (data) => api.post('/auth/register', data),
   me: () => api.get('/auth/me'),
 };
 

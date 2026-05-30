@@ -2,8 +2,6 @@
 node_modules/
 
 # Environment & secrets
-.env
-.env.local
 .env.*.local
 
 # Build output
@@ -21,7 +19,6 @@ Thumbs.db
 
 # IDE
 .idea/
-.vscode/
 *.swp
 *.swo
 
@@ -30,3 +27,7 @@ fems/frontend/.vite/
 
 # Optional local data (legacy JSON store)
 fems/backend/data.json
+config.bat
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat

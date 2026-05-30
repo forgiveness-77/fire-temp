@@ -19,6 +19,13 @@ export function AuthProvider({ children }) {
     return res.data.user;
   }, []);
 
+  const register = useCallback(async (data) => {
+    const res = await authApi.register(data);
+    setAuthToken(res.data.token);
+    setUser(res.data.user);
+    return res.data.user;
+  }, []);
+
   useEffect(() => {
     const token = getStoredToken();
     if (!token) {
@@ -36,7 +43,7 @@ export function AuthProvider({ children }) {
   const isAdmin = user?.role === 'admin';
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout, canWrite, isAdmin }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, canWrite, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );
